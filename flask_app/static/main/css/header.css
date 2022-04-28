@@ -1,0 +1,18 @@
+
+/*This removes all padding and margins from the body*/
+body{
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    margin-right: 0px;
+    padding: 0;
+}
+
+/*This is a class to handle the banner image style*/
+.banner{
+	width: calc(100%);
+    height: auto;
+	min-height: 10vh;
+    background-image: url(/static/main/images/banner.jpg);
+    background-size: cover;
+}

@@ -1,0 +1,123 @@
+/*This removes all padding and margins from the body*/
+body{
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+    margin-left: 0px; 
+    margin-right: 0px;
+    padding: 0;
+    min-height: 200px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+
+.allMain{
+    grid-template-columns: 1fr;
+    position: relative;
+    margin-top: 100px;
+}
+
+/*This is a class to handle the selfie*/
+.selfie{
+    margin: 0px;
+	width: 100%;
+    height: auto;
+    position: static;
+    display: flex;
+    min-height: 100%;
+
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.mainContain{
+    position: relative;
+    margin: 50px;
+    color: #000000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    justify-content: center;
+    justify-items: center;
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 50vh;
+    max-width: 80vw;
+    text-align: center;
+}
+
+.mainText{
+    position: static;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: auto;
+    max-height: 50vh;
+}
+
+.centeredText{
+    font-size: 2.7vw;
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-justify: inter-word;
+    color: #000000;
+    margin-top: 50px;
+}
+
+#poem{
+    size: 10px;
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-justify: inter-word;
+    color: #000000;
+    margin-top: 50px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.lineBreak{
+    size: 10px;
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-justify: inter-word;
+    color: #000000;
+    margin-top: 50px;
+}
+
+/*Conditional to move text below image*/
+@media screen and (max-width: 650px){
+
+    .mainContain{
+        margin: 50px;
+        color: #000000;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 50px;
+        max-height: 100%;
+    }
+
+    .mainText{
+        position: static;
+        height: auto;
+    }
+}

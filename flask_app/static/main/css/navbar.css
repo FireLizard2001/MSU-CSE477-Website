@@ -1,0 +1,145 @@
+/*This removes all padding and margins from the body*/
+body{
+    margin-top: 0; 
+    margin-bottom: 0; 
+    margin-left: 0; 
+    margin-right: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    color: #ffffff;
+    min-width: 250px;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  width: calc(100%)
+
+}
+
+/*This handles the adjustment of all links*/
+nav li{
+    float: left;
+    margin-right: 40px;
+    margin-top: 8px;
+}
+
+nav li:hover{
+    opacity: 50%;
+}
+
+/*Formats hyperlinks*/
+.hyperlink{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/*Formats the haburger bar*/
+#navButton{
+  background-image: url(/static/main/images/menu-bar.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 47px;
+  width: 50px;
+  border: none;
+  float: right;
+  margin: 25px;
+  display: none;
+}
+
+/*adjusts links*/
+.link{
+    margin-top: 24px;
+}
+
+/*formats the style of the list*/
+.navList{
+    position: static;
+    float: right;
+    list-style: none;
+}
+
+/*This is a class to handle the banner image style*/
+.navBar{
+    height: 100px;
+    border: 1px solid #000000;
+    background: #000000;
+    width: 100%;
+}
+
+/*adjusts the project name*/
+.CSE477{
+    float:left;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+/*Set size for linkedin logo*/
+#linkedinLogo{
+    width: 50px;
+}
+
+.linked{
+    margin-top: 24px;
+    display: none;
+}
+
+.link.active{
+    display: flex;
+}
+
+.linked.active{
+    display: flex;
+}
+
+
+/*Conditional to swap links list with hamburger bar button*/
+@media screen and (max-width: 650px){
+    #navButton{
+        display: flex;
+    }
+
+    #navButton:hover{
+        opacity: 50%;
+    }
+
+    #linkedinLogo{
+        display:none;
+    }
+    .link:hover{
+        opacity:100%
+    }
+   .linked:hover{
+        opacity:100%
+    }
+
+    .navList {
+        margin: 0;
+        padding: 0;
+        float: none;
+        display: block;
+    }
+    .link{
+        border: 10px solid #1B2631;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: none;
+        background: #1B2631
+    }
+    .linked{
+        border: 10px solid #1B2631;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: none;
+        background: #1B2631
+    }
+    .hyperlink:hover{
+        opacity:50%;
+    }
+
+}

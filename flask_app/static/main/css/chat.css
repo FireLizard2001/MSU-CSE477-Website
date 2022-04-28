@@ -1,0 +1,38 @@
+#chat{
+    height: 60vh;
+    width: 50vw;
+}
+
+.message{
+
+}
+
+.mainText{
+    position: static;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: auto;
+    max-height: 50vh;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.mainContain{
+    margin: 0px;
+    color: #000000;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0px;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    overflow: visible;
+    z-index: 500;
+}
+
+

@@ -1,0 +1,37 @@
+.feedback{
+	position: fixed;
+	z-index: 500;
+	height: 40px;
+	width: 100%;
+	top: 50%;
+	transform: translate(0%, -50%);
+	margin-right: 0vw;
+}
+
+#right{
+	float: right;
+	transform: rotate(-90deg);
+	transform-origin: bottom right;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+#feedback_form{
+	position: fixed;
+	z-index: 501;
+	width: 30%;
+	top:40%;
+	left:50%;
+	transform: translate(-50%,-30%);
+	display: none;
+	margin: 0vw;
+	color: #ffffff;
+	background-color: #5A4D84;
+	text-align: center;
+	padding: 0.8vh;
+}
+
+.list_item{
+	color: #000000;
+	font-size: 1.5vw;
+}
