@@ -1,0 +1,63 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+
+{% block maincontent %}
+<div class = "allMain">
+    <link rel="stylesheet" href="/static/main/css/login.css">
+    <div class="mainContain">
+        <h3>Login</h3>
+        <form>
+    	    <p>Email:</p>
+		    <input type="text" id="emailInput">
+		    <p>Password:</p>
+		    <input type="text" id="passwordInput">
+            <p></p>
+            <input type="button" value="Submit" onclick="checkCredentials()" />
+        </form>
+
+		{% if attempt == 0 %}  
+			<p></p>
+		{% else %}
+			<p id="authenticate">Authentication failure: {{attempt}}</p>
+		{% endif %}
+
+
+        <script>
+        let count     = 0
+        function checkCredentials() {
+            var email = document.getElementById("emailInput").value;
+            var password = document.getElementById("passwordInput").value;
+            // package data in a JSON object
+            var data_d = {'email': email, 'password': password}
+            console.log('data_d', data_d)
+
+            // SEND DATA TO SERVER VIA jQuery.ajax({})
+            jQuery.ajax({
+                url: "/processlogin",
+                data: data_d,
+                type: "POST",
+                success:function(retruned_data){
+                      retruned_data = JSON.parse(retruned_data);
+                      attempt = retruned_data
+                      if (attempt > 0)
+                      {
+                            window.location.href = "/login";
+                      }
+                      else{
+                            window.location.href = "/home";
+                      }
+                      
+                    }
+            });
+        }
+        </script>
+     
+     </div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,43 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<link rel="stylesheet" href="/static/piano/css/piano.css">
+<script type="module" src="/static/piano/js/piano.js"></script>
+<!-- The items in main that contain information -->
+<div class = "allMain">
+	<div>
+		<p id="poem">Behold piano great and old, it's master slumbers in far off cold, If you wish to see anew, call out to it - we see you.</p>
+	</div>
+	<div>
+		<hr class="lineBreak">
+	</div>
+	<!-- The piano -->
+	<div id="piano">
+
+		<div class="pianoBack">
+			<img src="static/piano/images/texture.jpeg" class="selfie">
+		</div>
+		<div class="great"><p>The Great Old One</p></div>
+		<div class="awake"><p>I have awoken.</p></div>
+		<div class="keys">
+			<div id="noteA" class="white"><p>A</p></div>
+			<div id="noteW" class="black"><p>W</p></div>
+			<div id="noteS" class="white"><p>S</p></div>
+			<div id="noteE" class="black"><p>E</p></div>
+			<div id="noteD" class="white"><p>D</p></div>
+			<div id="noteF" class="white"><p>F</p></div>
+			<div id="noteT" class="black"><p>T</p></div>
+			<div id="noteG" class="white"><p>G</p></div>
+			<div id="noteY" class="black"><p>Y</p></div>
+			<div id="noteH" class="white"><p>H</p></div>
+			<div id="noteU" class="black"><p>U</p></div>
+			<div id="noteJ" class="white"><p>J</p></div>
+			<div id="noteK" class="white"><p>K</p></div>
+			<div id="noteO" class="black"><p>O</p></div>
+			<div id="noteL" class="white"><p>L</p></div>
+			<div id="noteP" class="black"><p>P</p></div>
+			<div id="note;" class="white"><p>;</p></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

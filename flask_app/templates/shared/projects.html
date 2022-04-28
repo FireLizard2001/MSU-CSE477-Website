@@ -1,0 +1,31 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!-- The items in main that contain information -->
+<div class = "allMain">
+	<div>
+		<h1 class="centeredText"> Below is a list of projects I developed in CSE 477:</h1>
+	</div>
+	<div>
+		<p class="centeredText"> Click an image or hyperlink in the description to learn more.</p>
+	</div>
+	<div>
+		<hr class="lineBreak">
+	</div>
+	<!-- The items in main in the row -->
+	<div class="mainContain">
+		<link rel="stylesheet" href="/static/main/css/main.css">
+		<a href="/piano"><img src="static/main/images/piano.jpeg" class="selfie"></a>
+		<div class="mainText">
+			<h1>Javascript Piano</h1>
+			<p>As part of the first homework assignment in CSE 477, we were instructed to develop an interactive piano build within HTML, CSS, and JavaScript. This was to demonstrate our ability to create mobile friendly front-end applications. <a href="/piano"> Click this link to see and play the piano! </a></p>
+		</div>
+	</div>
+	<div>
+		<hr class="lineBreak">
+	</div>
+	<div>
+		<h2 class="centeredText"> More Content Coming Soon!</h2>
+	</div>
+</div>
+{% endblock %}

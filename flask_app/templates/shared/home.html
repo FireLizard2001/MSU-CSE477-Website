@@ -1,0 +1,28 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<div class = "allMain">
+	<!-- The items in main in the row -->
+	<div class="mainContain">
+		<link rel="stylesheet" href="/static/main/css/main.css">
+		<img src="static/main/images/BeachSelfie.jpg" class="selfie">
+		<div class="mainText">
+			<h1>David Khankin</h1>
+			<p>A computer scientist studying at Michigan State University. He is also a part of the Game Development and Design Minor.</p>
+			<p>Hoping to one day become a world renown game developer. But for now has to start small and work his way up. Taking the CSE 477 course to help suplement his problem solving abilities whilst also gaining new skills in HTML, CSS, and Javascript. All new languages to him. </p>
+			<p>Most consider David to be an extrovert. While this is true, it is also true that hehas social anxiety. Meeting someone new is always a challenge but he is super friendly, hyper, and enthusiastic even just 5 minutes after meeting someone. </p>
+		</div>
+	</div>
+	<div>
+		<hr class="lineBreak">
+	</div>
+	<div>
+		<h2 class="centeredText"> A Fun Fact About Me:</h2>
+	</div>
+	<div>
+		<p class="centeredText">{{fun_fact}}</p>
+	</div>
+</div>
+{% endblock %}
+
+

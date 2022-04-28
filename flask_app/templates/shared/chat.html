@@ -1,0 +1,95 @@
+{% extends 'shared/layout.html' %}
+
+{% block extracss %}
+<style> 
+#chat {
+  width: 100%;
+  height: 350px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  overflow-y:auto
+}
+</style>
+{% endblock %}
+
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket;
+    $(document).ready(function(){
+        
+        socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+        socket.on('connect', function() {
+            socket.emit('joined', {});
+        });
+       
+
+        socket.on('status', function(data) {     
+            let tag  = document.createElement("p");
+            let text = document.createTextNode(data.msg);
+            let element = document.getElementById("chat");
+            tag.appendChild(text);
+            tag.style.cssText = data.style;
+            element.appendChild(tag);
+            $('#chat').scrollTop($('#chat')[0].scrollHeight);
+
+        });        
+    });
+</script>
+{% endblock %}
+
+
+{% block maincontent %}
+<div class = "allMain">
+    <link rel="stylesheet" href="/static/main/css/chat.css">
+    <div class = "mainContain">
+        <p>Chat</p>
+    </div>
+    <div id="mainText">
+        <div id='chat'>    
+        </div>
+    </div>
+    <div class = "mainContain">
+        <p class="message">
+            <input type="text" id="text_box" placeholder="Enter Your Message Here" onkeypress="text_sub(event)" />
+        </p>
+        <button id="leaveChat" onclick="leave()">Leave Chat</button>
+    </div>
+</div>
+
+<script>
+    var input = document.getElementById("text_box");
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {  
+            if (e.target.value !== ""){
+                validate(e);
+            }
+        }
+    });
+
+    function validate(e) {
+        var msg = e.target.value;
+        e.target.value = "";
+
+        var socket;
+        socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+        socket.emit('msgsend', msg);
+
+    }
+
+    function leave(){
+        var socket;
+        socket = io.connect('https://' + document.domain + ':' + location.port + '/chat');
+        socket.emit('leave', {});
+        window.location.href = "/home";
+        
+    }
+
+</script>
+{% endblock %}

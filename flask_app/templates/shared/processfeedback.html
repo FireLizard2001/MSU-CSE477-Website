@@ -1,0 +1,22 @@
+﻿{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<!-- The items in main that contain information -->
+<div class = "allMain">
+	<link rel="stylesheet" href="/static/main/css/feedback.css">
+	<div>
+		<h1 class="centeredText"> Thanks for your feedback - here's what others had to say:</h1>
+	</div>
+	  
+
+	<div class="feedback_body">
+		<ul>
+		    <!-- For each piece of feedback - generate a row --> 
+			{% for feed_id, feed in feedback_data.items() %}
+				<li class = "list_item">{{feed['name']}} said: {{feed['comment']}}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+</div>
+{% endblock %}

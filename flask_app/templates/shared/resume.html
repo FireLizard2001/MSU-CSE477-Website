@@ -1,0 +1,62 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<div class = "allMain">
+	<link rel="stylesheet" href="/static/main/css/resume.css">
+	<div>
+		<hr class="lineBreak">
+	</div>
+      <!-- For each institution - generate a row --> 
+      {% for inst_id, inst in resume_data.items() %}
+      <!-- Do something... -->
+      <div class = "institution">
+        <h1 class = "inst_name">{{ inst['name']}} </h1>
+        <h2 class = "inst_loc">{{ inst['city']}}, {{ inst['state']}}</h2>
+        <!-- For each position - generate a row --> 
+        {% if inst['positions'] != {} %}
+          {% for pos_id, pos in inst['positions'].items() %}
+          <!-- Do something else... -->
+          <h2 class = "pos_name">{{ pos['title']}} </h2>
+          {% if pos['end_date'] == None %}
+            <h3 class = "start_end_date">{{ pos['start_date']}} - Present</h3>
+          {% endif %}
+          {% if pos['end_date'] != None %}
+            <h3 class = "start_end_date">{{ pos['start_date']}} - {{ pos['end_date']}}</h3>
+          {% endif %}
+         
+
+          <h2 class = "pos_res">{{ pos['responsibilities']}}</h2>
+
+          <!-- For each experience - generate a row --> 
+          {% if pos['experiences'] != {} %}
+            <ul class = "exp_list">
+            {% for exp_id, exp in pos['experiences'].items() %}
+              <li><a href={{exp['hyperlink']}}>{{ exp['name']}}</a>: {{ exp['description']}}</li>
+
+              <!-- For each skill - put it in the list -->
+              {% if exp['skills'] != {} %}
+                <ul class = "skills">
+                {% for skill_id, skill in exp['skills'].items() %}
+                  <li>{{ skill['name']}}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+
+            {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div>
+		<hr class="lineBreak">
+	  </div>
+
+      {% endfor %}
+</div>
+
+
+{% endblock %}
+
+
