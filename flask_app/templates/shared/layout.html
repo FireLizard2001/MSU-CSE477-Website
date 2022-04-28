@@ -1,0 +1,112 @@
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>David Khankin's personal page</title>
+  <link rel="stylesheet"    href="{{ url_for('static', filename='main/css/main.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='main/images/favicon.ico') }}">
+  {% block extracss %}{% endblock %}
+  <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+  {% block extrajs %}{% endblock %}
+</head>
+
+<body>
+    <article>
+    <div id="page-container">
+		<!-- The header  -->
+		<header>
+			<link rel="stylesheet" href="/static/main/css/header.css">
+			<div class="banner">
+			</div>
+		</header>
+
+		<!-- The navigation bar -->
+		<nav>
+			<link rel="stylesheet" href="/static/main/css/navbar.css">
+			<script type="module" src="/static/main/js/navbar.js"></script>
+		    <div class="navBar">
+				{% if user == 'Unknown' %}  
+					<p class="CSE477">CSE 477 - Homework 3</p>
+				{% else %}
+					<p class="CSE477">Logged in as {{user}}</p>
+				{% endif %}
+				<br>
+      
+				<button type="button" id="navButton"></button>
+				<!-- unordered list of links -->
+				<ul class ="navList">
+					<li class="link"><a href="/home" class="hyperlink">Home</a></li>
+					<li class="link"><a href="/projects" class="hyperlink">Projects</a></li>
+					<li class="link"><a href="/resume" class="hyperlink">Resume</a></li>
+					<li class="link"><a href="/chat" class="hyperlink">Chat</a></li>
+					{% if user == 'Unknown' %}  
+						<li class="link"><a href="/login" class="hyperlink">Login</a></li>
+					{% else %}
+						<li class="link"><a href="/logout" class="hyperlink">Logout</a></li>
+					{% endif %}
+					<li class="linked"><a href="https://www.linkedin.com/in/david-khankin-72b5081a1/" class="hyperlink">LinkedIn</a></li>
+					<li><a href="https://www.linkedin.com/in/david-khankin-72b5081a1/" class="hyperlink"><img src="/static/main/images/social-linkedin.png" alt="linkedin logo" id="linkedinLogo"></a></li>
+				</ul>
+			</div>
+		</nav>
+
+			<feedback>
+				<link rel="stylesheet" href="/static/main/css/feedback.css">
+				<script type="module" src="/static/main/js/feedback.js"></script>
+				<div class = "feedback">
+					<input type="button" value="Feedback" id="right">
+				</div>
+			</feedback>
+
+    		<feedback_form>
+			<link rel="stylesheet" href="/static/main/css/feedback.css">
+			<script type="module" src="/static/main/js/feedback.js"></script>
+			<div id = "feedback_form">
+				<form action="/processfeedback" method="post">
+					<p>Your Name:</p>
+					<input type="text" id="name" name="userName">
+					<p>Your Email</p>
+					<input type="text" id="email" name="userEmail">
+					<p>Your Comment</p>
+					<input type="text" id="comment" name="userComment">
+					<p></p>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</feedback_form>
+
+        <!-- The main content  -->
+        <main>
+          {% block maincontent %}{% endblock %}
+        </main>
+
+		<!-- The footer of the file -->
+		<footer id ="footer">
+			<link rel="stylesheet" href="/static/main/css/footer.css">
+			<div class="foot">
+				<p id="footText">@ 2022 David L. Khankin</p>
+			</div>
+		</footer>
+	</div>
+    </article>
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
