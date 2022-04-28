@@ -1,0 +1,112 @@
+
+
+#piano{
+	display: flex;
+	justify-content: center;
+    justify-items: center;
+}
+
+.great{
+	margin-top: calc(5%);
+	position: absolute;
+	color: #c1c1c1;
+	font-family: Papyrus, fantasy;
+	font-size: 2vw;
+}
+
+.awake{
+	margin-top: calc(5%);
+	position: absolute;
+	color: #ffffff;
+	font-family: Papyrus, fantasy;
+	font-size: 2vw;
+	opacity: 0;
+}
+
+.keys{
+	position: absolute;
+	width: calc(90%);
+	height: calc(40%);
+    bottom: calc(10%);
+    color: #000000;
+    justify-content: center;
+    justify-items: center;
+    object-fit: cover;
+    text-align: center;
+	filter: brightness(1);
+	margin-left: 7vw;
+}
+
+.pianoBack{
+	color: #000000;
+	filter: brightness(0);
+}
+
+
+.white{
+	float: left;
+	height: calc(100%);
+	width: calc(9%);
+	border: 1px solid #000000;
+	background: #ffffff;
+	z-index: 1;
+	display: flex;
+    justify-content: center;
+    align-items: flex-end;
+	color: #ffffff;
+}
+
+.black{
+	position: relative;
+	float: left;
+	height: calc(60%);
+	width: calc(7%);
+	border: 1px solid black;
+	background: #050139;
+	z-index: 2;
+	margin-left: calc(-4%);
+	margin-right: calc(-4%);
+	display: flex;
+    justify-content: center;
+    align-items: flex-end;
+	color: #050139;
+}
+
+.black.active{
+	color: #ffffff;
+}
+
+.white.active{
+	color: #000000;
+}
+
+
+@keyframes opacity-down{
+	from { opacity: 1 }
+	to { opacity: 0 }
+}
+
+.disappear{
+	animation: opacity-down 3s linear;
+	opacity: 0;
+}
+
+@keyframes opacity-up{
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+
+.appear{
+	animation: opacity-up 3s linear;
+	opacity: 1;
+}
+
+@keyframes filter-up{
+	from {filter: brightness(0)}
+	to {filter: brightness(1)}
+}
+
+.handleback{
+	animation: filter-up 3s linear;
+	filter: brightness(1);
+}
