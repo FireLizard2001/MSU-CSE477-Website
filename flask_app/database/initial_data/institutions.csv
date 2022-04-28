@@ -1,0 +1,4 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Automotive","Valiant TMS","Computer Science",NULL,"Auburn Hills","Michigan",NULL
+"2","Hardware","Lowes and Menards","Lumber",NULL,"Bloomfield Hills","Michigan",NULL
+"3","Schooling","Michigan State University","Computer Science",NULL,"East Lansing","Michigan",NULL
